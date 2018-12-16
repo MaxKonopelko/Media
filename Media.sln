@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Media.Api", "Media.Api\Media.Api.csproj", "{2B80E084-1C43-4207-9A85-57E4F5E67000}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Media.DAL", "Media.DAL\Media.DAL.csproj", "{0CA115C8-E253-4EE3-B2D9-C823BC23792B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B80E084-1C43-4207-9A85-57E4F5E67000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B80E084-1C43-4207-9A85-57E4F5E67000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B80E084-1C43-4207-9A85-57E4F5E67000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B80E084-1C43-4207-9A85-57E4F5E67000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CA115C8-E253-4EE3-B2D9-C823BC23792B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CA115C8-E253-4EE3-B2D9-C823BC23792B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CA115C8-E253-4EE3-B2D9-C823BC23792B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CA115C8-E253-4EE3-B2D9-C823BC23792B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E6CFEAFF-461E-4990-A1BE-0D1AEA9BE7CC}
+	EndGlobalSection
+EndGlobal
