@@ -20,8 +20,7 @@ export class MainComponent implements IComponent
 
   public template(): string
   {
-    return `
-            <div id="buttonGrowl">Button</div>
+    return `            
             <div class="menu">
                  <div class="b1" id="fl1"><i class="fa fa-youtube-play" style="font-size:36px"></i>Photo</div>
                  <div class="b1" id="fl2"><i class="fa fa-music" style="font-size:36px"></i>Music</div>

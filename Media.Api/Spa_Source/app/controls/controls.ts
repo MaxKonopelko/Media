@@ -12,14 +12,12 @@ export function formContent(content: string, callback: Function): string
 
       if (form.checkValidity())
       {
-        console.log('VALID');
         form.classList.remove('was-validated');
         const arr = formParse(form);
         callback(arr);
       }
       else
       {
-        console.log('INVALID');
         form.classList.add('was-validated');
       }
     });

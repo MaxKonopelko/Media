@@ -13,12 +13,12 @@ namespace Media.DAL
 
         private static void CreateUsers(MediaContext context)
         {
-            context.Users.Add(new User
-            {
-                Name = "Test1s"
-            });
+            //context.Users.Add(new User
+            //{
+            //    Name = "Test1s"
+            //});
 
-            context.SaveChanges();
+            //context.SaveChanges();
         }
     }
 }

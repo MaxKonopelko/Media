@@ -2,14 +2,39 @@ import { IComponent } from '../../types';
 import { formContent } from '../../controls/controls';
 import { Component } from '../../../libreris/component';
 import { Patterns } from '../../../libreris/common';
+import { IImageModel } from '../../../models/models';
+import { ImagesListComponent } from './images-list.component';
+import { ImagesContentComponent } from './images-content.component';
 
 @Component
 export class ImagesUrlComponent implements IComponent
 {
+  private _photoList = new ImagesListComponent();
+  private _imagesContentComponent = new ImagesContentComponent();
+
+  private handleChange = () =>
+  {
+    const link = document.getElementById('url-photo')['value'];
+    //this._imagesContentComponent.showImageByLink(link);
+  };
+
   private handleSubmit = (formValues: object) =>
   {
+    const image: IImageModel = {
+      link: formValues['url'],
+      name: formValues['name'],
+      authorFullName: '',
+    };
 
+    this._photoList.add(image);
+    this.resetForm();
   };
+
+  private resetForm(): void
+  {
+    document.getElementById('url-photo')['value'] = '';
+    document.getElementById('url-name')['value'] = '';
+  }
 
   public template(): string
   {

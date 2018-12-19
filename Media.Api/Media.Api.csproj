@@ -6,9 +6,13 @@
 
   <ItemGroup>
     <Compile Remove="Spa_Source\**" />
+    <Compile Remove="wwwroot\scss\**" />
     <Content Remove="Spa_Source\**" />
+    <Content Remove="wwwroot\scss\**" />
     <EmbeddedResource Remove="Spa_Source\**" />
+    <EmbeddedResource Remove="wwwroot\scss\**" />
     <None Remove="Spa_Source\**" />
+    <None Remove="wwwroot\scss\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,7 +28,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\css\" />
-    <Folder Include="wwwroot\scss\" />
   </ItemGroup>
 
   <ItemGroup>

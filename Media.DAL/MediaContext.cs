@@ -7,15 +7,16 @@ namespace Media.DAL
     {
         public MediaContext(DbContextOptions options) : base(options)
         {
-            
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Image> Images { get; set; }
     }
 
-    public class User
+    public class Image
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Link { get; set; }
+        public string AuthorFullName { get; set; }
     }
 }
