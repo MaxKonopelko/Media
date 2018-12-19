@@ -1,54 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Media.DAL;
 using System.Threading.Tasks;
+using Media.DAL;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Media.Api.Controllers
 {
-    [Route("api/Music")]
-    public class MusicController : Controller
+    [Route("api/Video")]
+    public class VideoController : Controller
     {
         private readonly MediaContext _context;
 
-        public MusicController(MediaContext context)
+        public VideoController(MediaContext context)
         {
             _context = context;
         }
 
         [HttpGet("get-all")]
-        public List<Music> GetAll()
+        public List<Video> GetAll()
         {
-            var music = _context.Music.ToList();
+            var video = _context.Video.ToList();
 
-            return music;
+            return video;
         }
 
         [HttpGet("get-by-id/{id}")]
-        public Music GetById(int id)
+        public Video GetById(int id)
         {
-            var music = _context.Music.First(x => x.Id == id);
-            return music;
+            var video = _context.Video.First(x => x.Id == id);
+            return video;
         }
 
         [HttpPost("add")]
-        public int Add([FromBody] Music music)
+        public int Add([FromBody] Video video)
         {
-            _context.Music.Add(music);
+            _context.Video.Add(video);
             _context.SaveChanges();
 
-            return music.Id;
+            return video.Id;
         }
 
         [HttpDelete("remove/{id}")]
         public bool Remove(int id)
         {
-            var val = _context.Music.FirstOrDefault(x => x.Id == id);
+            var val = _context.Video.FirstOrDefault(x => x.Id == id);
             if (val != null)
             {
-                _context.Music.Remove(val);
+                _context.Video.Remove(val);
                 _context.SaveChanges();
             }
             return true;

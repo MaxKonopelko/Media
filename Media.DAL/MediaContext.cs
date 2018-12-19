@@ -10,6 +10,8 @@ namespace Media.DAL
         }
 
         public DbSet<Image> Images { get; set; }
+        public DbSet<Music> Music { get; set; }
+        public DbSet<Video> Video { get; set; }
     }
 
     public class Image
@@ -18,5 +20,21 @@ namespace Media.DAL
         public string Name { get; set; }
         public string Link { get; set; }
         public string AuthorFullName { get; set; }
+    }
+
+    public class Music
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Link { get; set; }
+        public string LinkImage { get; set; }
+        public string AuthorFullName { get; set; }
+    }
+
+    public class Video
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Link { get; set; }
     }
 }
