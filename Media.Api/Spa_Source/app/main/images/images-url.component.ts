@@ -12,10 +12,15 @@ export class ImagesUrlComponent implements IComponent
   private _photoList = new ImagesListComponent();
   private _imagesContentComponent = new ImagesContentComponent();
 
+  public onInit(): void
+  {
+    document.getElementById('url-photo').addEventListener('change', this.handleChange);
+  }
+
   private handleChange = () =>
   {
     const link = document.getElementById('url-photo')['value'];
-    //this._imagesContentComponent.showImageByLink(link);
+    this._imagesContentComponent.showImageByLink(link);
   };
 
   private handleSubmit = (formValues: object) =>
@@ -23,7 +28,6 @@ export class ImagesUrlComponent implements IComponent
     const image: IImageModel = {
       link: formValues['url'],
       name: formValues['name'],
-      authorFullName: '',
     };
 
     this._photoList.add(image);

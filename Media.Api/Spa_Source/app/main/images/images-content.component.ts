@@ -15,6 +15,11 @@ export class ImagesContentComponent implements IComponent
     });
   }
 
+  public showImageByLink(link: string): void
+  {
+    document.getElementById('image')['src'] = link;
+  }
+
   public clear(): void
   {
     document.getElementById('image')['src'] = urlDefaultImage;

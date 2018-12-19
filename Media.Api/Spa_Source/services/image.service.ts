@@ -31,7 +31,7 @@ export class ImageService
       .then(response => response.json());
   }
 
-  public static remove(id: number): Promise<number>
+  public static remove(id: number): Promise<boolean>
   {
     const param: RequestInit = {
       method: 'DELETE'
@@ -39,4 +39,13 @@ export class ImageService
     return fetch(`/api/Image/remove/${id}`, param)
       .then(response => response.json());
   }
+
+  // public static test(model: IImageModel)
+  // {
+  //   return httpService('Image/add', HttpMethod.GET, model);
+  // }
+}
+export enum HttpMethod
+{
+  GET = 'GET'
 }

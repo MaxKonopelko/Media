@@ -24,3 +24,19 @@ export enum Patterns
 }
 
 export const urlDefaultImage = 'http://placehold.it/200x200';
+
+export function Jquery()
+{
+  return new Promise(resolve =>
+  {
+    const timer = setInterval(() =>
+    {
+      console.warn('jQuery timer', typeof jQuery);
+      if (jQuery != null && typeof jQuery === 'function')
+      {
+        clearInterval(timer);
+        resolve(jQuery);
+      }
+    }, 1);
+  });
+}

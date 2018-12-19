@@ -7,7 +7,6 @@ export interface IImageModel extends IEntity
 {
   link?: string;
   name?: string;
-  authorFullName?: string;
 }
 
 export interface IMusicModel extends IEntity
@@ -18,16 +17,10 @@ export interface IMusicModel extends IEntity
   authorFullName?: string;
 }
 
-export interface IFilmsModel extends IEntity
+export interface IVideoModel extends IEntity
 {
   link?: string;
   name?: string;
-}
-
-export class User
-{
-  public id: number;
-  public name: string;
 }
 
 export class Image
@@ -36,4 +29,20 @@ export class Image
   public name: string;
   public link: string;
   public authorFullName: string;
+}
+
+export class Music
+{
+  public id: number;
+  public name: string;
+  public link: string;
+  public linkImage: string;
+  public authorFullName: string;
+}
+
+export class Video
+{
+  public id: number;
+  public name: string;
+  public link: string;
 }

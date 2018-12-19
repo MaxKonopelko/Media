@@ -1,5 +1,11 @@
 import { AuthComponent } from './auth/auth.component';
 import { MainComponent } from './main/mainComponent';
+import { Jquery } from '../libreris/common';
+
+Jquery().then(jquery =>
+{
+  console.log('jquery', jquery);
+});
 
 export class AppComponent
 {

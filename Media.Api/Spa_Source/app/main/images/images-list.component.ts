@@ -10,7 +10,6 @@ export class ImagesListComponent implements IComponent
   private imagesContentComponent = new ImagesContentComponent();
   public imageList: Image[] = [];
   public activeId: number;
-  public buffer: number;
 
   public onInit(): void
   {
@@ -19,7 +18,6 @@ export class ImagesListComponent implements IComponent
 
   public setActive(): void
   {
-
     ImageService.getAll().then(images =>
     {
       if (images[images.length - 1])
