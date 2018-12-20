@@ -36,6 +36,9 @@ export class ImagesListComponent implements IComponent
       this.refresh();
       this.activeId = index;
       this.imagesContentComponent.showImageById(index);
+    }).catch(error =>
+    {
+      console.log('eroor', error);
     });
   }
 

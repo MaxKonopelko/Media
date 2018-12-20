@@ -18,25 +18,37 @@ export enum Patterns
 {
   ImageUrl = 'https?:\\/\\/.*\\.(?:png|jpg|jpeg|gif)',
   MusicUrl = 'https?:\\/\\/.*\\.(?:mp3)',
-  FilmUrl = 'https?:\\/\\/.*\\.(?:mp4)',
-  Name = '[A-Za-zА-Яа-яЁё0-9 ]{1,15}',
-
+  VideoUrl = 'https?:\\/\\/.*\\.(?:mp4)',
+  Name     = '[A-Za-zА-Яа-яЁё0-9 ]{1,15}',
 }
 
 export const urlDefaultImage = 'http://placehold.it/200x200';
 
-export function Jquery()
+// export function Jquery()
+// {
+//   return new Promise(function (resolve)
+//   {
+//     const timer = setInterval(function ()
+//     {
+//       console.warn('jQuery timer', typeof jQuery);
+//       if (jQuery != null && typeof jQuery === 'function')
+//       {
+//         clearInterval(timer);
+//         resolve(jQuery);
+//       }
+//     }, 1);
+//   });
+// }
+
+export function Jquery(t: Function)
 {
-  return new Promise(resolve =>
+  const timer = setInterval(function ()
   {
-    const timer = setInterval(() =>
+    console.warn('jQuery timer', typeof jQuery);
+    if (jQuery != null && typeof jQuery === 'function')
     {
-      console.warn('jQuery timer', typeof jQuery);
-      if (jQuery != null && typeof jQuery === 'function')
-      {
-        clearInterval(timer);
-        resolve(jQuery);
-      }
-    }, 1);
-  });
+      clearInterval(timer);
+      t(jQuery);
+    }
+  }, 1);
 }

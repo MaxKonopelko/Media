@@ -36,6 +36,7 @@ namespace Media.Api.Controllers
         [HttpPost("add")]
         public int Add([FromBody] Image image)
         {
+            throw new Exception("TRATATATATA_TA");
             _context.Images.Add(image);
             _context.SaveChanges();
 

@@ -3,12 +3,12 @@ import { ImagesComponent } from './images/images.component';
 import { MusicComponent } from './music/music.component';
 import { Component } from '../../libreris/component';
 
-
 @Component
 export class MainComponent implements IComponent
 {
   private _imagesComponent = new ImagesComponent();
   private _musicsComponent = new MusicComponent();
+
   //private _videoComponent = new VideoComponent();
 
   public onInit(): void
@@ -16,7 +16,8 @@ export class MainComponent implements IComponent
     this.handleSubmit(this._musicsComponent);
     document.getElementById('fl1').addEventListener('click', (e) => this.handleSubmit(this._imagesComponent));
     document.getElementById('fl2').addEventListener('click', (e) => this.handleSubmit(this._musicsComponent));
-   //document.getElementById('fl3').addEventListener('click', (e) => this.handleSubmit(this._videoComponent));
+    //document.getElementById('fl3').addEventListener('click', (e) => this.handleSubmit(this._videoComponent));
+    //console.log('ImageService.test()', ImageService.test());
   }
 
   private handleSubmit = (component: IComponent) =>

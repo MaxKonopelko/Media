@@ -1,51 +1,35 @@
 import { IImageModel, Image } from '../models/models';
+import { HttpMethod, httpService } from './http.service';
 
 export class ImageService
 {
+  // public static getAll(): Promise<Image[]>
+  // {
+  //   const param: RequestInit = {
+  //     method: 'GET',
+  //   };
+  //   return fetch('/api/Image/get-all', param)
+  //     .then(response => response.json());
+  // }
+
   public static getAll(): Promise<Image[]>
   {
-    const param: RequestInit = {
-      method: 'GET',
-    };
-    return fetch('/api/Image/get-all', param)
-      .then(response => response.json());
+    return httpService('Image/get-all', HttpMethod.GET);
   }
 
   public static getById(id: number): Promise<Image>
   {
-    const param: RequestInit = {
-      method: 'GET',
-    };
-    return fetch(`/api/Image/get-by-id/${id}`, param)
-      .then(response => response.json());
+    return httpService(`Image/get-by-id/${id}`, HttpMethod.GET);
   }
 
-  public static add(id: IImageModel): Promise<number>
+  public static add(model: IImageModel): Promise<number>
   {
-    const params: RequestInit = {
-      method: 'POST',
-      body: JSON.stringify(id),
-      headers: {'Content-Type': 'application/json;'}
-    };
-    return fetch(`/api/Image/add`, params)
-      .then(response => response.json());
+    return httpService(`Image/add`, HttpMethod.POST, model);
   }
 
   public static remove(id: number): Promise<boolean>
   {
-    const param: RequestInit = {
-      method: 'DELETE'
-    };
-    return fetch(`/api/Image/remove/${id}`, param)
-      .then(response => response.json());
+    return httpService(`Image/remove/${id}`, HttpMethod.DELETE);
   }
 
-  // public static test(model: IImageModel)
-  // {
-  //   return httpService('Image/add', HttpMethod.GET, model);
-  // }
-}
-export enum HttpMethod
-{
-  GET = 'GET'
 }
