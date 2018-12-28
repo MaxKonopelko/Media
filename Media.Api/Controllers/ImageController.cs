@@ -36,7 +36,6 @@ namespace Media.Api.Controllers
         [HttpPost("add")]
         public int Add([FromBody] Image image)
         {
-            throw new Exception("TRATATATATA_TA");
             _context.Images.Add(image);
             _context.SaveChanges();
 
@@ -46,6 +45,8 @@ namespace Media.Api.Controllers
         [HttpDelete("remove/{id}")]
         public bool Remove(int id)
         {
+            throw new Exception("TRATATATATA_TA");
+     
             var val = _context.Images.FirstOrDefault(x => x.Id == id);
             if (val != null)
             {

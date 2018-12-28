@@ -1,7 +1,7 @@
 import { IComponent } from '../../types';
 import { Component } from '../../../libreris/component';
 import { urlDefaultImage } from '../../../libreris/common';
-import { ImageService } from '../../../services/image.service';
+import { AxiosService } from '../../../services/image.service';
 
 @Component
 export class ImagesContentComponent implements IComponent
@@ -9,7 +9,7 @@ export class ImagesContentComponent implements IComponent
 
   public showImageById(id: number): void
   {
-    ImageService.getById(id).then(image =>
+    AxiosService.getById(id).then(image =>
     {
       document.getElementById('image')['src'] = image.link;
     });

@@ -1,6 +1,6 @@
 import { IComponent } from '../../types';
 import { Component } from '../../../libreris/component';
-import { ImageService } from '../../../services/image.service';
+import { AxiosService } from '../../../services/image.service';
 import { IImageModel, Image } from '../../../models/models';
 import { ImagesContentComponent } from './images-content.component';
 
@@ -18,7 +18,7 @@ export class ImagesListComponent implements IComponent
 
   public setActive(): void
   {
-    ImageService.getAll().then(images =>
+    AxiosService.getAll().then(images =>
     {
       if (images[images.length - 1])
       {
@@ -31,20 +31,17 @@ export class ImagesListComponent implements IComponent
 
   public add(image: IImageModel): void
   {
-    ImageService.add(image).then(index =>
+    AxiosService.add(image).then(index =>
     {
       this.refresh();
       this.activeId = index;
       this.imagesContentComponent.showImageById(index);
-    }).catch(error =>
-    {
-      console.log('eroor', error);
     });
   }
 
   private refresh(): void
   {
-    ImageService.getAll().then(images =>
+    AxiosService.getAll().then(images =>
     {
       this.imageList = images;
 
@@ -111,7 +108,7 @@ export class ImagesListComponent implements IComponent
         const parent = iElement.parentElement;
         const id = parseInt(parent.dataset.id);
 
-        ImageService.remove(id).then(image =>
+        AxiosService.remove(id).then(image =>
         {
           this.setActive();
         });

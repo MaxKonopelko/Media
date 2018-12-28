@@ -40,6 +40,22 @@ export const urlDefaultImage = 'http://placehold.it/200x200';
 //   });
 // }
 
+// public static send(url: string, method: HttpMethod, data?: any): Promise<any>
+// {
+//   return new Promise(resolve =>
+//   {
+//     this.sendHttp(url, method, data)
+//       .then(data =>
+//       {
+//         resolve(data);
+//       })
+//       .catch(err =>
+//       {
+//
+//       });
+//   });
+// }
+
 export function Jquery(t: Function)
 {
   const timer = setInterval(function ()

@@ -1,17 +1,8 @@
 import { IImageModel, Image } from '../models/models';
-import { HttpMethod, httpService } from './http.service';
+import { HttpMethod, HttpService, httpService, httpService1 } from './http.service';
 
 export class ImageService
 {
-  // public static getAll(): Promise<Image[]>
-  // {
-  //   const param: RequestInit = {
-  //     method: 'GET',
-  //   };
-  //   return fetch('/api/Image/get-all', param)
-  //     .then(response => response.json());
-  // }
-
   public static getAll(): Promise<Image[]>
   {
     return httpService('Image/get-all', HttpMethod.GET);
@@ -31,5 +22,27 @@ export class ImageService
   {
     return httpService(`Image/remove/${id}`, HttpMethod.DELETE);
   }
+}
 
+export class AxiosService
+{
+  public static getAll(): Promise<Image[]>
+  {
+    return httpService1('Image/get-all', HttpMethod.GET);
+  }
+
+  public static getById(id: number): Promise<Image>
+  {
+    return httpService1(`Image/get-by-id/${id}`, HttpMethod.GET);
+  }
+
+  public static add(): Promise<number>
+  {
+    return HttpService.send(`Image/add`, HttpMethod.POST);
+  }
+
+  public static remove(id: number): Promise<boolean>
+  {
+    return httpService1(`Image/remove/${id}`, HttpMethod.DELETE);
+  }
 }

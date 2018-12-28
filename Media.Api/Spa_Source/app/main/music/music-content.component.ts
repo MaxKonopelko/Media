@@ -33,7 +33,6 @@ export class MusicContentComponent implements IComponent
 
   public template(): string
   {
-
     return `
               <div class="music-content">
                       <div class="music-block">

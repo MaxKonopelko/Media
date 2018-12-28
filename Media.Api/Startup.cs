@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Media.DAL;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -40,11 +43,23 @@ namespace Media.Api
 
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
             }
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+
+            app.UseExceptionHandler(appError =>
+            {
+                appError.Run(async context =>
+                {
+                    context.Response.ContentType = "application/json";
+
+                    var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+                    var error = contextFeature.Error;
+                    await context.Response.WriteAsync(error.Message);
+                });
+            });
 
             app.UseMvc(routes =>
             {
